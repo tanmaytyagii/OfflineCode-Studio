@@ -1,0 +1,26 @@
+# CMake and build output
+/build*/
+/out/
+CMakeUserPresets.json
+CMakeCache.txt
+CMakeFiles/
+compile_commands.json
+
+# OfflineCode Studio local state
+.offlinecode/build/
+.offlinecode/recovery/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Coverage and diagnostics
+coverage/
+*.gcda
+*.gcno
+*.profraw
+*.profdata

@@ -1,0 +1,57 @@
+- name: bug
+  color: d73a4a
+  description: Something is not working as specified
+- name: enhancement
+  color: a2eeef
+  description: New feature or improvement
+- name: documentation
+  color: 0075ca
+  description: Documentation-only change
+- name: good first issue
+  color: 7057ff
+  description: Scoped work with contributor guidance
+- name: help wanted
+  color: 008672
+  description: Maintainers welcome community help
+- name: UI
+  color: c5def5
+  description: User interface or interaction work
+- name: performance
+  color: f9d0c4
+  description: Startup, memory, latency, or throughput
+- name: compiler
+  color: b60205
+  description: Toolchain discovery, build, or diagnostics
+- name: editor
+  color: 1d76db
+  description: Source editing behavior
+- name: accessibility
+  color: 5319e7
+  description: Keyboard, screen reader, contrast, or scaling
+- name: testing
+  color: fbca04
+  description: Automated or manual quality coverage
+- name: needs-triage
+  color: ededed
+  description: Maintainer review is needed
+- name: platform-windows
+  color: 0078d4
+  description: Windows-specific behavior
+- name: platform-linux
+  color: fcc624
+  description: Linux-specific behavior
+- name: platform-macos
+  color: 555555
+  description: macOS-specific behavior
+- name: priority-critical
+  color: 7f0000
+  description: Release-blocking data loss, security, or total failure
+- name: priority-high
+  color: d93f0b
+  description: Major workflow is broken
+- name: priority-medium
+  color: fbca04
+  description: Important but has a workaround
+- name: priority-low
+  color: c2e0c6
+  description: Minor polish or edge case

@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  core:
+    name: Core - ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, windows-2022, macos-14]
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Configure
+        run: >-
+          cmake -S . -B build
+          -DOFFLINECODE_BUILD_GUI=OFF
+          -DOFFLINECODE_BUILD_TESTS=ON
+          -DOFFLINECODE_ENABLE_WARNINGS_AS_ERRORS=ON
+      - name: Build
+        run: cmake --build build --config Debug --parallel 2
+      - name: Test
+        run: ctest --test-dir build -C Debug --output-on-failure
+
+  repository-contract:
+    name: Repository contract
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Verify required documentation
+        shell: bash
+        run: |
+          test -s README.md
+          test -s docs/SRS.md
+          test -s docs/SDD.md
+          test -s docs/TESTING.md
+          test -s SECURITY.md
+          test -s LICENSE
+      - name: Enforce domain independence from Qt
+        shell: bash
+        run: |
+          if grep -R --line-number '#include <Q' src/domain; then
+            echo 'Qt includes are not allowed in src/domain.'
+            exit 1
+          fi

@@ -1,0 +1,49 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "dev-core",
+      "displayName": "Core development (no Qt required)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/dev-core",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "OFFLINECODE_BUILD_GUI": "OFF",
+        "OFFLINECODE_BUILD_TESTS": "ON",
+        "OFFLINECODE_ENABLE_WARNINGS_AS_ERRORS": "ON"
+      }
+    },
+    {
+      "name": "dev-gui",
+      "displayName": "Desktop application development",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/dev-gui",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "OFFLINECODE_BUILD_GUI": "ON",
+        "OFFLINECODE_BUILD_TESTS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "dev-core", "configurePreset": "dev-core" },
+    { "name": "dev-gui", "configurePreset": "dev-gui" }
+  ],
+  "testPresets": [
+    {
+      "name": "dev-core",
+      "configurePreset": "dev-core",
+      "output": { "outputOnFailure": true }
+    },
+    {
+      "name": "dev-gui",
+      "configurePreset": "dev-gui",
+      "output": { "outputOnFailure": true }
+    }
+  ]
+}

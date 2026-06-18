@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "name": "hello-world",
+  "standard": "c++17",
+  "sources": ["main.cpp"],
+  "build": {
+    "compiler": "auto",
+    "flags": ["-Wall", "-Wextra", "-pedantic"]
+  },
+  "run": {
+    "workingDirectory": ".",
+    "timeoutMs": 3000
+  }
+}

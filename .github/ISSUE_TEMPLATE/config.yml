@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/offlinecode-studio/offlinecode-studio/security/advisories/new
+    about: Report security issues privately.
+  - name: Questions and ideas
+    url: https://github.com/offlinecode-studio/offlinecode-studio/discussions
+    about: Ask for help or discuss ideas before scoping an issue.
