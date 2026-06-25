@@ -2,7 +2,7 @@
 
 #include <QApplication>
 #include <QCoreApplication>
-
+//main  import 
 int main(int argc, char* argv[]) {
     QApplication application(argc, argv);
     QCoreApplication::setApplicationName(QStringLiteral("OfflineCode Studio"));
